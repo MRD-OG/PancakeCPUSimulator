@@ -2,7 +2,7 @@
 # Shared buffer: This interfaces with L3
 class SharedBuffer:
 
-    def __init__(self, size):
+    def __init__(self):
         pass
 
     def add_core_buffer(self, core_buffer):
@@ -50,7 +50,6 @@ class PrivateBuffer:
         # Fifo queues
         self.incoming = []
         self.outgoing = []
-        pass
 
     def has_outgoing(self):
         return len(self.outgoing) > 0
