@@ -11,17 +11,7 @@ class Meta_ENUM(Enum):
 class L3(Cache):
 
     def __init__(self, tag_mask, tag_offset, index_mask, index_offset, associativity, sets, line_size):
-        super().__init__(tag_mask, tag_offset, index_mask, index_offset)
-
-        self.associativity = associativity
-        self.sets          = sets
-        self.line_size     = line_size
-
-        # Mirrors architecture of redstone implementation
-        # i.e. each cache line has 4 blocks of data, each containing an upper and lower word
-        self.data = [
-            [[[0x0000, 0x0000] for _ in range(line_size >> 1)] for _ in range(associativity)] for _ in range(sets)
-        ]
+        super().__init__(tag_mask, tag_offset, index_mask, index_offset,  associativity, sets, line_size)
 
         self.tags = [[0 for _ in range(associativity)] for _ in range(sets)]
         # L3 metadata contains [valid bit, dirty bit, reference count]
