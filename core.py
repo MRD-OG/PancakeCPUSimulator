@@ -14,13 +14,15 @@ class Core:
         # Total size: 8 * 2 * 8 = 256 Words / 512 Bytes
 
         # Note: L1i and L1d may contain shared blocks of data
-        # Note: In redstone implementation, each line comprises contains 4 blocks of data,
+        # Note: In redstone implementation, for L1 each line comprises contains 4 blocks of data,
         #       each with their own upper and lower word this results in the following address
         #       structure:
 
         # L1 address breakdown:
         # [11b tag] [2b idx] [2b block offset] [1b word offset]
         # [00000000 000] [00] [00] [0]
+
+        # For the purposes of this simulation I will not separate the lower 3 bits of the address
 
         # Initialise L1
         self.l1d = L1(0xFFE0, 5, 0x0018, 3,2, 4, 8)
@@ -32,6 +34,8 @@ class Core:
         # L2 is 2-way set associative with 16 sets
         # line size is 8 words, words are 16 bit
         # Total size: 16 * 2 * 8 = 256 Words / 512 Bytes
+
+        # Note: Redstone implementation of L2 has an upper 4 and lower 4 words per cache line
 
         # L2 address breakdown:
         #  [9b tag] [4b idx] [3b ignored]

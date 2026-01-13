@@ -15,6 +15,8 @@ class CPU:
         # Note: L3 is inclusive of all data in private caches
         # Total capacity:
 
+        # Note: Redstone implementation of L3 has an upper 4 and lower 4 words per cache line
+
         # L3 Address breakdown:
         # [6b tag] [7b idx]    [3b ignored]
         # [000000] [00 00000]  [000]

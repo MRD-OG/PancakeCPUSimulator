@@ -13,7 +13,7 @@ class Cache:
         # Mirrors architecture of redstone implementation
         # i.e. each cache line has 4 blocks of data, each containing an upper and lower word
         self.data = [
-            [[[0x0000, 0x0000] for _ in range(line_size >> 1)] for _ in range(associativity)] for _ in range(sets)
+            [[0x0000 for _ in range(line_size)] for _ in range(associativity)] for _ in range(sets)
         ]
 
     def get_tag_index(self, address):
